@@ -1,0 +1,28 @@
+# Environments
+.env
+.venv/
+env/
+venv/
+__pycache__/
+
+# IDE / Editor specific
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data - recommend using Git LFS or a download script
+*.csv
+*.json
+*.parquet
+*.zip
+
+# Build artifacts
+*.html
+*.pdf
+dist/
+build/
+
+# Docker
+docker-compose.override.yml

@@ -1,0 +1,12 @@
+name: 30day-challenge
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - jupyterlab
+  - pandas
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - pyarrow  # For Parquet support

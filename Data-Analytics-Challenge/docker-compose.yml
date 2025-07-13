@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  challenge-env:
+    build: .
+    container_name: 30-day-data-challenge
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
