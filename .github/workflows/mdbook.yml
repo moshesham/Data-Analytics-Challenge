@@ -1,0 +1,85 @@
+#
+# A professional-grade workflow for building and deploying an mdBook site to GitHub Pages.
+#
+# Key Features:
+# - Fast: Uses a pre-compiled mdBook binary.
+# - Efficient: Caches the mdBook binary for near-instant setup on subsequent runs.
+# - Maintainable: Uses environment variables for easy configuration of versions and paths.
+# - Robust: Correctly handles source and build directories.
+#
+name: Deploy mdBook Site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Pin the mdBook version for reproducible builds.
+      MDBOOK_VERSION: 0.4.36
+      # Define the source directory for the book. Change this if your book.toml is elsewhere.
+      BOOK_SRC_DIR: .
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up mdBook cache
+        uses: actions/cache@v4
+        with:
+          # The path to cache is the location of the mdbook binary.
+          path: /usr/local/bin/mdbook
+          # The cache key is composed of the runner's OS and the mdBook version.
+          # If either changes, the cache will be invalidated.
+          key: ${{ runner.os }}-mdbook-${{ env.MDBOOK_VERSION }}
+
+      - name: Install mdBook (fast, cached method)
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: ${{ env.MDBOOK_VERSION }}
+
+      - name: Setup GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build mdBook site
+        run: mdbook build ${{ env.BOOK_SRC_DIR }}
+
+      - name: Upload artifact
+        # This action packages the built site into an artifact that the 'deploy' job can use.
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # The path to upload is the 'book' directory created by the 'mdbook build' command.
+          # This path is relative to the BOOK_SRC_DIR.
+          path: ${{ env.BOOK_SRC_DIR }}/book
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build # This job will only run if the 'build' job completes successfully.
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
