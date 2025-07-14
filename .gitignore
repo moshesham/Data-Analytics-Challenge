@@ -1,0 +1,14 @@
+# mdBook build output directory
+/book-src/book/
+
+# Python & Docker
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+docker-compose.override.yml
+
+# Data & System
+.DS_Store
+*.duckdb
+data/

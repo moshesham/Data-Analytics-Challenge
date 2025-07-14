@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  challenge-env:
+    build: .
+    container_name: product-analytics-masterclass
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    command: >
+      jupyter lab
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --NotebookApp.token=''
+      --NotebookApp.password=''

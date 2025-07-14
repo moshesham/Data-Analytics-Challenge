@@ -1,0 +1,12 @@
+[book]
+authors = ["Your Name"]
+language = "en"
+multilingual = false
+src = "src" # Tells mdBook to look for markdown files in the 'src' directory
+title = "The 30-Day Product Analytics Masterclass"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/your-username/your-repo-name" # TODO: Update this URL
+edit-url-template = "https://github.com/your-username/your-repo-name/edit/main/{path}" # TODO: Update this URL
