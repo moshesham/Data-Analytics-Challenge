@@ -1,5 +1,4 @@
-# The 30-Day Product Analytics Masterclass (Hybrid Project)
-
+# The 30-Day Product Analytics Masterclass
 Welcome! This repository contains all materials for the "30-Day Product Analytics Masterclass." This project has two primary components:
 
 1.  **An Interactive Coding Environment:** For completing the daily hands-on challenges.
