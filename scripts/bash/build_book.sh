@@ -17,13 +17,17 @@ mkdir -p "${BOOK_SRC_DIR}"
 
 # --- Copy Core Content ---
 echo "-> Copying main curriculum and reports..."
-# We will just copy the main file as the introduction for this example.
-# A more advanced script would parse this file into chapters.
-cp "${MAIN_CURRICULUM_FILE}" "${BOOK_SRC_DIR}/instroduction.md"
+cp "${MAIN_CURRICULUM_FILE}" "${BOOK_SRC_DIR}/introduction.md"
 
-# # Copy key reports into the book
-# cp "${REPORTS_DIR}/ab_test_analysis.md" "${BOOK_SRC_DIR}/ab_test_analysis.md"
-# cp "${REPORTS_DIR}/qbr_presentation.md" "${BOOK_SRC_DIR}/qbr_presentation.md"
+# Copy key reports into the book
+cp "${REPORTS_DIR}/ab_test_analysis.md" "${BOOK_SRC_DIR}/ab_test_analysis.md"
+cp "${REPORTS_DIR}/qbr_presentation.md" "${BOOK_SRC_DIR}/qbr_presentation.md"
+cp "${REPORTS_DIR}/Journals_Instrumentation_Plan.md" "${BOOK_SRC_DIR}/Journals_Instrumentation_Plan.md"
+cp "${REPORTS_DIR}/Week1_Launch_Summary.md" "${BOOK_SRC_DIR}/Week1_Launch_Summary.md"
+cp "${REPORTS_DIR}/AB_Test_Final_Readout.md" "${BOOK_SRC_DIR}/AB_Test_Final_Readout.md"
+cp "${REPORTS_DIR}/Pre_Mortem_Memo.md" "${BOOK_SRC_DIR}/Pre_Mortem_Memo.md"
+cp "${REPORTS_DIR}/Journals_Launch_Monitoring_Dashboard.md" "${BOOK_SRC_DIR}/Journals_Launch_Monitoring_Dashboard.md"
+cp "${REPORTS_DIR}/DiD_Critical_Assessment.md" "${BOOK_SRC_DIR}/DiD_Critical_Assessment.md"
 
 # --- Generate SUMMARY.md ---
 echo "-> Generating book table of contents (SUMMARY.md)..."
