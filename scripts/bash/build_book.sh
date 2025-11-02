@@ -19,11 +19,11 @@ mkdir -p "${BOOK_SRC_DIR}"
 echo "-> Copying main curriculum and reports..."
 # We will just copy the main file as the introduction for this example.
 # A more advanced script would parse this file into chapters.
-cp "${MAIN_CURRICULUM_FILE}" "${BOOK_SRC_DIR}/introduction.md"
+cp "${MAIN_CURRICULUM_FILE}" "${BOOK_SRC_DIR}/instroduction.md"
 
-# Copy key reports into the book
-cp "${REPORTS_DIR}/ab_test_analysis.md" "${BOOK_SRC_DIR}/ab_test_analysis.md"
-cp "${REPORTS_DIR}/qbr_presentation.md" "${BOOK_SRC_DIR}/qbr_presentation.md"
+# # Copy key reports into the book
+# cp "${REPORTS_DIR}/ab_test_analysis.md" "${BOOK_SRC_DIR}/ab_test_analysis.md"
+# cp "${REPORTS_DIR}/qbr_presentation.md" "${BOOK_SRC_DIR}/qbr_presentation.md"
 
 # --- Generate SUMMARY.md ---
 echo "-> Generating book table of contents (SUMMARY.md)..."
