@@ -2,6 +2,7 @@
 
 # --- Variables ---
 MAIN_CURRICULUM_FILE="30-Day Product Analytics Masterclass.md"
+C:\Users\Moshe\Analytical_Guide\Data-Analytics-Challenge\30-Day Product Analytics Masterclass.md
 BOOK_SRC_DIR="book-src/src"
 REPORTS_DIR="reports"
 
