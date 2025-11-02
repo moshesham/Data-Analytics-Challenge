@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # --- Variables ---
-MAIN_CURRICULUM_FILE="path/to/main_curriculum.md"
-BOOK_SRC_DIR="path/to/book-src/src"
-REPORTS_DIR="path/to/reports"
+MAIN_CURRICULUM_FILE="30-Day Product Analytics Masterclass.md"
+BOOK_SRC_DIR="book-src/src"
+REPORTS_DIR="reports"
 
 # --- Copy Core Content ---
 echo "-> Copying main curriculum and reports..."
